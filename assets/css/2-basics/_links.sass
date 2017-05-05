@@ -1,0 +1,36 @@
+.social
+  @media screen and (max-width: 1255px)
+    margin-bottom: 50px
+  a
+    margin-right: 7px
+    font-size: 1.5rem
+    color: $red-trans
+    text-decoration: none
+    @include transition(all 0.3s ease-in-out)
+
+    @media screen and (max-width: 1255px)
+      font-size: 1.5rem
+    @media screen and (max-width: 860px)
+      font-size: 1.2rem
+
+    &:hover
+      color: $red
+
+
+
+  p
+    display : inline-block
+    margin: 0
+    @media screen and (max-width: 1255px)
+      display : block
+      font-size: 1rem
+
+#quote-source
+  a
+    color: $dark-blue-trans
+    text-decoration: none
+    -webkit-transition: all 0.3s ease-in-out
+    -moz-transition: all 0.3s ease-in-out
+    transition: all 0.3s ease-in-out
+    &:hover
+      color: $dark-blue
