@@ -22,6 +22,6 @@ Github Pages : https://ihatem.github.io/quote-generator/
 * [FontAwesome](http://fontawesome.io) for the icons
 * [QuotesOnDesign API](http://fontawesome.io) the API V4.0 used for generate the quotes via JSON
  
-### Issus 
+### Issues 
 
 The website isn't mobile friendly. So if you have a solution to make it more responsive, don't hesitate to pull a request. Thank you, I hope you like this little project.
