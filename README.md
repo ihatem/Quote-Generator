@@ -10,7 +10,7 @@ Github Pages : https://ihatem.github.io/quote-generator/
 
 ## Tools Used
 
- * [Sass](http://sass-lang.com/) a lightweight starting place for small web projects
+ * [Sass](http://sass-lang.com/) Preprocess css language
  * [Bourbon](http://bourbon.io) A mixin library for Sass that I used for autoprefix
  * [CodeKit](https://codekitapp.com) to compile sass
  * [Live (GitHub-Flavored) Markdown Editor](https://github.com/jbt/markdown-editor) for this README markedown
