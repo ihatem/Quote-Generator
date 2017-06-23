@@ -20,7 +20,7 @@ Github Pages : https://ihatem.github.io/quote-generator/
 
 * [Devtips Starter Kit](https://github.com/DevTips/DevTips-Starter-Kit) a lightweight starting place for small web projects
 * [FontAwesome](http://fontawesome.io) for the icons
-* [QuotesOnDesign API](http://fontawesome.io) the API V4.0 used for generate the quotes via JSON
+* [QuotesOnDesign API](https://quotesondesign.com/api-v4-0/) the API V4.0 used for generate the quotes via JSON
  
 ### Issues 
 
