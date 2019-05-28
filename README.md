@@ -1,6 +1,6 @@
 ## Description
 
-A small, flat designed and responsive website that generates random quotes based on design using the QuoteOndesign.com [QuotesOnDesign.com](http://QuotesOnDesign.com) API designed initially for [freecodecamp](https://www.freecodecamp.com/) exercice.
+A small, flat designed and responsive website that generates random quotes based on design using the [QuotesOnDesign.com](http://QuotesOnDesign.com) API designed initially for [freecodecamp](https://www.freecodecamp.com/) exercice.
 
 
 ## Demo
