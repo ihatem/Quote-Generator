@@ -2,6 +2,9 @@
 
 A small, flat designed and responsive website that generates random quotes based on design using the [QuotesOnDesign.com](http://QuotesOnDesign.com) API designed initially for [freecodecamp](https://www.freecodecamp.com/) exercice.
 
+## Screenshot
+![App screenshot!](https://raw.githubusercontent.com/ihatem/quote-generator/master/assets/img/quote-generator-sketch.png)
+
 
 ## Demo
 
