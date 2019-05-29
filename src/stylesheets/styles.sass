@@ -1,26 +1,138 @@
 // This is the single file output by sass. It is intended to ONLY @import other files. 
 @import "~@fortawesome/fontawesome-free/css/all.css"
-// 1 - TOOLS
-@import '1-tools/bourbon/bourbon'
-@import '1-tools/neat/neat'
-@import '1-tools/fonts'
-@import '1-tools/normalize'
-@import '1-tools/colors'
 
+@import '~normalize.css'
+@import 'tools/fonts.scss'
+@import 'tools/colors'
 
-// 2 - BASICS
-@import '2-basics/body-element'
-@import '2-basics/links'
-@import '2-basics/buttons'
-@import '2-basics/ruban'
+a 
+  text-decoration: none 
+* 
+  transition: all .3s ease-in-out
+body 
+  height: 100vh
+  background: #2ecc71
+  font-family: 'Open Sans', sans-serif
+  #main 
+    padding: 3% 8%
+    display: flex 
+    flex-direction: column
+    justify-content: space-between
+    height: 100%
+    box-sizing: border-box
+    @media screen and (max-width: 780px)
+      padding: 10% 5%
+    #header 
+      height: 5em
+      svg 
+        width: 100%
+        height: 100%
+        opacity: .5
+        &:hover 
+          opacity: 1
+          
+    #content 
+      display: flex
+      justify-content: center 
+      align-items: center
+      @media screen and (max-width: 780px)
+        flex-direction: column
+      #quote-content
+        color: white
+        font-weight: 700
+        @media screen and (max-width: 780px)
+          order: 1
+          text-align: center
 
+      .line 
+        width: 4em 
+        height: .2em 
+        background: white
+        @media screen and (max-width: 780px)
+          order: 3
+          margin: 2em 0
+      .source 
+        display: flex
+        flex-direction: column
+        min-width: 130px
+        p 
+          color: white
+          margin: 0
+          &:first-child 
+            margin-bottom: .2em
+        #quote-source 
+          font-weight: 700
+          a
+            color: $dark-blue-trans
+            &:hover 
+              color: $dark-blue !important
+        @media screen and (max-width: 780px)
+          order: 4
+          text-align: center
+      div 
+        margin-right: 2em 
+        &:last-child  
+          margin: 0 
+        @media screen and (max-width: 780px)
+          margin: 0
+      .share 
+        @media screen and (max-width: 780px)
+          order: 2
 
-// 3 - SECTIONS
-@import '3-sections/0-main'
-@import '3-sections/1-header'
-@import '3-sections/2-content'
-@import '3-sections/3-share'
-@import '3-sections/4-source'
-@import '3-sections/5-line'
-@import '3-sections/6-quote-content'
-@import '3-sections/7-footer'
+    #footer 
+      display: flex
+      justify-content: space-between
+      align-items: flex-end
+      text-transform: uppercase
+      @media screen and (max-width: 780px)
+        flex-direction: column
+        align-items: center
+        text-align: center !important
+      .copyright
+        @media screen and (max-width: 780px)
+          order: 2
+      p
+        color: $dark-blue
+        opacity: .5
+        font-weight: 700
+        margin: 0
+      
+        .heart 
+          color: $red
+        &:hover 
+          opacity: .9
+      button
+        cursor: pointer
+        font-size: 24px
+        font-weight: 700 !important
+        text-transform: uppercase
+        width: 200px
+        height: 60px
+        background-color: $blue
+        border: 0px
+        color: white
+        font-weight: 300
+        @media screen and (max-width: 780px)
+          order: 1
+          margin: 1em 0
+
+        &:hover
+          background-color: white
+          color: $blue
+          border-color: $blue
+      .social 
+        display: flex
+        align-items: center
+        @media screen and (max-width: 780px)
+          margin-top: .5em
+          order: 3
+        @media screen and (max-width: 380px)
+          flex-direction: column
+          text-align: center
+        a 
+          font-size: 1.2em
+          color: white
+          opacity: .5
+          margin-left: .5em
+          &:hover 
+            opacity: 1

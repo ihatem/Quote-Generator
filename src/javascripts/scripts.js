@@ -134,7 +134,7 @@ $('.get-another-quote-button').on('click', function(e) {
       }
 
 
-      $('#main').css('background-color', colors[i]);
+      $('body').css('background-color', colors[i]);
 
 
       if (i>=4)
@@ -217,17 +217,6 @@ $('.get-another-quote-button').on('click', function(e) {
         }
       }
 
-
-
-    	if(windowHeight < 400){
-    		myFunctionQ();
-        $(".source").css("display", "flex");
-        $(".source").css("flex-direction", "row");
-        $(".source").css("justify-content", "center");
-        $(".source").css("align-items", "center");
-        $(".source > p").css("margin", "0 10px 0 0");
-        $(".source > p").css("font-size", "1rem");
-    	}
 
     },
     cache: false
