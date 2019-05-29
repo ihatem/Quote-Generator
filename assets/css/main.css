@@ -334,8 +334,8 @@ button {
   height: 100%;
   float: left;
   display: block;
-  margin-right: 2.3576515979%;
-  width: 14.7019570017%;
+  margin-right: 2.35765%;
+  width: 14.70196%;
   display: flex;
   flex-direction: column;
   justify-content: center; }
@@ -345,7 +345,7 @@ button {
     .share {
       float: left;
       display: block;
-      margin-right: 2.3576515979%;
+      margin-right: 2.35765%;
       width: 100%;
       display: flex;
       align-items: center;
@@ -354,9 +354,6 @@ button {
       order: 1; }
       .share:last-child {
         margin-right: 0; } }
-  @media screen and (max-width: 400px) {
-    .share {
-      display: none; } }
 
 .source {
   font-size: 1rem;
@@ -364,8 +361,8 @@ button {
   height: 100%;
   float: left;
   display: block;
-  margin-right: 2.3576515979%;
-  width: 10.4370548518%;
+  margin-right: 2.35765%;
+  width: 10.43705%;
   display: flex;
   flex-direction: column;
   justify-content: center; }
@@ -375,7 +372,7 @@ button {
     .source {
       float: left;
       display: block;
-      margin-right: 2.3576515979%;
+      margin-right: 2.35765%;
       width: 100%;
       display: flex;
       align-items: center;
@@ -406,8 +403,8 @@ button {
   height: 100%;
   float: left;
   display: block;
-  margin-right: 2.3576515979%;
-  width: 8.7310939918%;
+  margin-right: 2.35765%;
+  width: 8.73109%;
   display: flex;
   flex-direction: column;
   justify-content: center; }
@@ -417,7 +414,7 @@ button {
     .line {
       float: left;
       display: block;
-      margin-right: 2.3576515979%;
+      margin-right: 2.35765%;
       width: 100%;
       display: flex;
       align-items: center;
@@ -441,8 +438,8 @@ button {
   height: 100%;
   float: left;
   display: block;
-  margin-right: 2.3576515979%;
-  width: 59.0569393608%;
+  margin-right: 2.35765%;
+  width: 59.05694%;
   display: flex;
   flex-direction: column;
   justify-content: center; }
@@ -453,7 +450,7 @@ button {
       text-align: center;
       float: left;
       display: block;
-      margin-right: 2.3576515979%;
+      margin-right: 2.35765%;
       width: 100%;
       display: flex;
       align-items: center;
@@ -543,3 +540,5 @@ button {
         text-align: center;
         padding: 0;
         margin: 0 auto; } }
+
+/*# sourceMappingURL=main.css.map */
