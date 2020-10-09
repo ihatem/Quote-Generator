@@ -1,228 +1,67 @@
-import $ from "jquery";
-/* ON LOAD */
-$( document ).ready(function() {
+import axios from "axios";
 
-  $.ajax({
-  url: '//quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1',
-  success: function(data) {
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
 
-    var post = data.shift(); // The data is an array of posts. Grab the first one.
-    var title = post.title;
-    $('#quote-title').text(post.title);
-    $('#quote-content').html(post.content);
+const colors = ["#1abc9c", "#9b59b6", "#f1c40f", "#e67e22", "#2ecc71"];
 
-    $("#header > a").hover(function(){
-      $(".st0").css("fill", "rgba(52, 73, 94,1.0)");
-    });
-    $("#header > a").mouseleave(function(){
-      $(".st0").css("fill", "rgba(52, 73, 94,0.5)");
-    });
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    document.getElementById("splash-screen").style.display = "none";
+    document.getElementById("main").style.display = "flex";
+  }, 1000);
+  const fetchData = async () => {
+    try {
+      const { data } = await axios.get(
+        `https://quotesondesign.com/wp-json/wp/v2/posts/?orderby=rand&_=${getRandomInt(
+          9999999999
+        )}`
+      );
 
-    // If the Source is available, use it. Otherwise hide it.
-    if (typeof post.custom_meta !== 'undefined' && typeof post.custom_meta.Source !== 'undefined') {
-      $('#quote-source').html(post.custom_meta.Source);
-      $("#quote-source a").text(title);
-    } else {
-      $('#quote-source').text(title);
-    }
+      if (data.length > 0) {
+        const { content, title } = data[getRandomInt(9)];
+        const titleEl = document.getElementById("quote-source");
+        const contentEl = document.getElementById("quote-content");
+        const numWords = content.rendered.split(" ").length;
+        titleEl.innerHTML = title.rendered;
+        contentEl.innerHTML = content.rendered;
 
-    var windowHeight= $(window).width();
-
-    function myFunctionQ() {
-
-      var $quote = $("#quote-content > p");
-      var $numWords = $quote.text().split(" ").length;
-
-      if ($numWords < 10) {
-        $quote.css("font-size", "40px");
-        $quote.css("line-height", "2.5rem");
-
-      } else if (($numWords >= 10) && ($numWords < 20)) {
-        $quote.css("font-size", "30px");
-        $quote.css("line-height", "2rem");
-
-      } else if (($numWords >= 10) && ($numWords < 20)) {
-        $quote.css("font-size", "24px");
-        $quote.css("line-height", "1.7rem");
-
-      } else if (($numWords >= 20) && ($numWords < 30)) {
-        $quote.css("font-size", "22px");
-        $quote.css("line-height", "1.3rem");
-
-      } else if (($numWords >= 30) && ($numWords < 40)) {
-        $quote.css("font-size", "20px");
-        $quote.css("line-height", "1.3rem");
-
-      } else {
-        $quote.css("font-size", "16px");
-        $quote.css("line-height", "1.2rem");
-
-      }
-    }
-
-    if(windowHeight < 400){
-      myFunctionQ();
-    }
-
-    function myFunction() {
-
-      var $quote = $("div#quote-content > p");
-      var $numWords = $quote.text().split(" ").length;
-
-      if (($numWords >= 10) && ($numWords < 20)) {
-        $quote.css("font-size", "36px");
-      } else if (($numWords >= 10) && ($numWords < 20)) {
-        $quote.css("font-size", "32px");
-      } else if (($numWords >= 20) && ($numWords < 30)) {
-        $quote.css("font-size", "28px");
-      } else if (($numWords >= 30) && ($numWords < 40)) {
-        $quote.css("font-size", "24px");
-      } else {
-        $quote.css("font-size", "20px");
-      }
-
-    }
-
-    myFunction();
-
-  },
-  cache: false
-});
-
-/* ON CLICK */
-var i= 0;
-$('.get-another-quote-button').on('click', function(e) {
-
-  e.preventDefault();
-  $.ajax({
-    url: '//quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1',
-    success: function(data) {
-
-
-      var colors = ['#1abc9c', '#9b59b6', '#f1c40f', '#e67e22', '#2ecc71'];
-
-      if (colors[i] === "#e67e22") {
-
-        $('.heart').css("color", "rgba(52, 152, 219,1.0)");
-
-        // $('.social > a').css("color", "rgba(52, 152, 219,0.5)");
-
-        // $(".social > a").hover(function(){
-        //   $(this).css("color", "rgba(52, 152, 219,1.0)");
-        // });
-
-        // $(".social > a").mouseleave(function(){
-        //   $(this).css("color", "rgba(52, 152, 219,0.5)");
-        // });
-
-      }
-
-      else {
-
-        $('.heart').css("color", "rgba(231, 76, 60,1.0)");
-
-        // $('.social > a').css("color", "rgba(231, 76, 60,0.5)");
-
-        // $(".social > a").hover(function(){
-        //   $(this).css("color", "rgba(231, 76, 60,1.0)");
-        // });
-
-        // $(".social > a").mouseleave(function(){
-        //   $(this).css("color", "rgba(231, 76, 60,0.5)");
-        // });
-
-      }
-
-
-      $('body').css('background-color', colors[i]);
-
-
-      if (i>=4)
-      {
-        i=0;
-      }
-      else
-      {
-        i++;
-      }
-
-
-      var post = data.shift(); // The data is an array of posts. Grab the first one.
-      var title = post.title;
-      $('#quote-title').text(post.title);
-      $('#quote-content').html(post.content);
-
-      // If the Source is available, use it. Otherwise hide it.
-      if (typeof post.custom_meta !== 'undefined' && typeof post.custom_meta.Source !== 'undefined') {
-        $('#quote-source').html(post.custom_meta.Source);
-        $("#quote-source a").text(title);
-      } else {
-        $('#quote-source').text(title);
-      }
-
-      function myFunction() {
-
-        var $quote = $("div#quote-content > p");
-        var $numWords = $quote.text().split(" ").length;
-
-        if ($numWords < 10) {
-          $quote.css("font-size", "40px");
-        } else if (($numWords >= 10) && ($numWords < 20)) {
-          $quote.css("font-size", "36px");
-        } else if (($numWords >= 10) && ($numWords < 20)) {
-          $quote.css("font-size", "32px");
-        } else if (($numWords >= 20) && ($numWords < 30)) {
-          $quote.css("font-size", "28px");
-        } else if (($numWords >= 30) && ($numWords < 40)) {
-          $quote.css("font-size", "24px");
+        if (numWords < 10) {
+          contentEl.style.fontSize = "40px";
+          contentEl.style.lineHeight = "2.5rem";
+        } else if (numWords >= 10 && numWords < 20) {
+          contentEl.style.fontSize = "30px";
+          contentEl.style.lineHeight = "2rem";
+        } else if (numWords >= 10 && numWords < 20) {
+          contentEl.style.fontSize = "24px";
+          contentEl.style.lineHeight = "1.7rem";
+        } else if (numWords >= 20 && numWords < 30) {
+          contentEl.style.fontSize = "22px";
+          contentEl.style.lineHeight = "1.3rem";
+        } else if (numWords >= 30 && numWords < 40) {
+          contentEl.style.fontSize = "20px";
+          contentEl.style.lineHeight = "1.3rem";
         } else {
-          $quote.css("font-size", "20px");
-        }
-
-      }
-
-      myFunction();
-
-      var windowHeight= $(window).width();
-
-      function myFunctionQ() {
-
-        var $quote = $("#quote-content > p");
-        var $numWords = $quote.text().split(" ").length;
-
-        if ($numWords < 10) {
-          $quote.css("font-size", "40px");
-          $quote.css("line-height", "2.5rem");
-
-        } else if (($numWords >= 10) && ($numWords < 20)) {
-          $quote.css("font-size", "30px");
-          $quote.css("line-height", "2rem");
-
-        } else if (($numWords >= 10) && ($numWords < 20)) {
-          $quote.css("font-size", "24px");
-          $quote.css("line-height", "1.7rem");
-
-        } else if (($numWords >= 20) && ($numWords < 30)) {
-          $quote.css("font-size", "22px");
-          $quote.css("line-height", "1.3rem");
-
-        } else if (($numWords >= 30) && ($numWords < 40)) {
-          $quote.css("font-size", "20px");
-          $quote.css("line-height", "1.3rem");
-
-        } else {
-          $quote.css("font-size", "16px");
-          $quote.css("line-height", "1.2rem");
-
+          contentEl.style.fontSize = "16px";
+          contentEl.style.lineHeight = "1.2rem";
         }
       }
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
+  fetchData();
 
-    },
-    cache: false
+  const randomBtnEl = document.querySelector(".get-another-quote-button");
+
+  randomBtnEl.addEventListener("click", () => {
+    let tempColors = [...colors];
+    const randomInt = getRandomInt(tempColors.length);
+    document.body.style.backgroundColor = tempColors[randomInt];
+    delete tempColors[randomInt];
+    if (tempColors.length === 0) tempColors = [...colors];
+    fetchData();
   });
-
-});
-
-
 });
